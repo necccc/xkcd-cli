@@ -4,10 +4,15 @@
   "description": "CLI tool for xkcd to find the most relevant to a context search  $ xkcd [keywords]",
   "main": "index.js",
   "dependencies": {
+    "jsdom": "^3.1.2",
+    "lodash": "^3.9.3",
     "minimist": "^1.1.1",
-    "xkcd": "^1.1.1"
+    "nedb": "^1.1.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "jsdom": "^5.4.3",
+    "progress": "^1.1.8"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -27,6 +32,6 @@
   },
   "homepage": "https://github.com/necccc/xkcd-cli",
   "bin": {
-  	"xkcd": "bin/xkcd.js"
+    "xkcd": "bin/xkcd.js"
   }
 }
