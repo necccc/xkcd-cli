@@ -4,12 +4,19 @@ var argv = require('minimist')(process.argv.slice(2));
 var jsdom = require('jsdom');
 var ProgressBar = require('progress');
 
-var dataFile = '../data/xkcd-index.json';
+var relPath = './';
+
+if (process.cwd().indexOf('crawl') > -1) {
+	relPath = '../';
+}
+
+var dataFile = relPath + 'data/xkcd-index.json';
+var indexFile = relPath + 'data/xkcd';
 
 var Parser = require('./parse-stream');
 var Output = require('./output-stream');
 var Datastore = require('nedb'),
-	db = new Datastore({ filename: '../data/xkcd', autoload: true });
+	db = new Datastore({ filename: indexFile, autoload: true });
 
 var bar;
 

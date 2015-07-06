@@ -11,9 +11,7 @@ xkcdcli(argv._, function (err, results) {
 
 	results.map(function (res) {
 		process.stdout.write('https://xkcd.com/' + res + '/' + '\n');
-
 	});
 
-	process.exit(0)
-
+	process.exit(0);
 })

@@ -24,7 +24,6 @@ module.exports = function (words, callback) {
 		} else {
 			callback(null, [])
 		}
-
 	});
 
 }
