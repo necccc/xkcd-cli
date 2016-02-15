@@ -2,7 +2,7 @@ var fs = require('fs');
 var _ = require('lodash');
 
 var Datastore = require('nedb'),
-	db = new Datastore({ filename: './data/xkcd', autoload: true });
+	db = new Datastore({ filename: __dirname + '/data/xkcd', autoload: true });
 
 
 module.exports = function (words, callback) {
