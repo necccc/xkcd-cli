@@ -3,6 +3,7 @@ var fs = require('fs');
 var argv = require('minimist')(process.argv.slice(2));
 var jsdom = require('jsdom');
 var ProgressBar = require('progress');
+var jquery = fs.readFileSync("./node_modules/jquery/dist/jquery.min.js", "utf-8");
 
 var relPath = './';
 
@@ -50,7 +51,7 @@ function parse (i, job, errors, window) {
 		setTimeout(fetch.bind(null, i, job), getRandomSec());
 		return;
 	}
-	
+
 	var $ = window.$;
 
 	var elements = $('#Transcript').parent().nextAll('dl');
@@ -101,11 +102,11 @@ function start (job) {
 }
 
 function fetch (i, job) {
-	jsdom.env(
-		"http://www.explainxkcd.com/wiki/index.php/" + i,
-		["http://code.jquery.com/jquery.js"],
-		parse.bind(null, i, job)
-	);
+	jsdom.env({
+		url: "http://www.explainxkcd.com/wiki/index.php/" + i,
+		src: [jquery],
+		done: parse.bind(null, i, job)
+	});
 }
 
 fs.readFile(dataFile, function (err, file) {
@@ -117,6 +118,11 @@ fs.readFile(dataFile, function (err, file) {
 		from: data.latest,
 		to: argv.to,
 		registry: []
+	}
+
+	if (!argv.to) {
+		console.log('Error: "to" parameter is mandantory');
+		return;
 	}
 
 	start(job);
