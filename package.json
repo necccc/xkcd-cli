@@ -4,15 +4,15 @@
   "description": "CLI tool for xkcd to find the most relevant to a context search  $ xkcd [keywords]",
   "main": "index.js",
   "dependencies": {
-    "jsdom": "^3.1.2",
-    "lodash": "^3.9.3",
-    "minimist": "^1.1.1",
-    "nedb": "^1.1.2"
+    "lodash": "^4.6.1",
+    "minimist": "^1.2.0",
+    "nedb": "^1.8.0"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
-    "grunt-release": "^0.12.0",
-    "jsdom": "^5.4.3",
+    "grunt-release": "^0.13.0",
+    "jquery": "^2.2.2",
+    "jsdom": "^8.1.0",
     "progress": "^1.1.8"
   },
   "scripts": {
